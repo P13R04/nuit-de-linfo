@@ -1,0 +1,27 @@
+:root{--stone:#d9d6d1;--carve:#2b2b2b;--accent:#6b4a2b}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#f7f4f1,#efe8e1);color:#222}
+.small-header{display:flex;align-items:center;gap:12px;padding:18px}
+.talents-main{display:flex;gap:20px;max-width:1100px;margin:14px auto;padding:0 16px;position:relative}
+.form-side{flex:0 0 340px;background:rgba(255,255,255,0.9);padding:16px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.06);position:absolute;left:28px;top:28px;z-index:6}
+.form-side label{display:block;margin-bottom:12px;font-weight:600;color:#333}
+.form-side input,.form-side textarea,.form-side select{width:100%;padding:10px;border-radius:8px;border:1px solid #d0c7bf;margin-top:6px;font-size:0.95rem}
+.actions{display:flex;gap:10px;margin-top:8px}
+.btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+.btn.ghost{background:rgba(0,0,0,0.06);color:#222}
+
+.preview-side{flex:1 1 auto;display:flex;flex-direction:column;align-items:center;background-image:url('/assets/pierre_cv.png');background-size:cover;background-position:center;min-height:640px;padding:40px;border-radius:12px}
+.card-wrap{background:transparent;padding:0;border-radius:0;box-shadow:0 12px 30px rgba(0,0,0,0.08);width:calc(100% - 80px)}
+.card-wrap canvas{border:0}
+.card-wrap.has-frame canvas{border:6px solid #000;border-radius:0}
+
+canvas{display:block;background:transparent;width:100%;height:auto;max-width:1200px}
+.hint{margin-top:10px;color:#6b6359}
+
+.carved{font-family: 'Georgia', serif}
+
+@media (max-width:900px){
+  .talents-main{flex-direction:column;padding:12px}
+  .form-side{order:2}
+  .preview-side{order:1}
+}

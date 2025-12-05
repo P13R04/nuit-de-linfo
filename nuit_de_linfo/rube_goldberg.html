@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rube Goldberg — Nuit de l'Info</title>
+  <style>
+    body{font-family:system-ui,Arial;margin:20px;background:#faf7f3;color:#222}
+    .card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    button{padding:8px 12px;border-radius:6px;border:0;background:#6b4a2b;color:#fff;cursor:pointer}
+    pre{background:#f2f2f2;padding:10px;border-radius:6px;overflow:auto}
+  </style>
+</head>
+<body>
+  <a href="../public/foret.html">← Retour à la Forêt</a>
+  <h1>Machine Rube Goldberg (placeholder)</h1>
+  <div class="card">
+    <p>Collez votre code de la Rube Goldberg ici ou copiez-le dans ce répertoire. Pour l'instant, cliquez sur le bouton pour simuler l'exécution et révéler un mot de passe.</p>
+    <button id="run">Lancer la machine</button>
+    <div style="margin-top:12px">
+      <strong>Mot de passe révélé :</strong>
+      <div id="secret" style="margin-top:8px;font-family:monospace;color:#b22222">(non lancé)</div>
+    </div>
+
+    <h3 style="margin-top:16px">Instructions d'intégration</h3>
+    <ol>
+      <li>Remplacez ce fichier par votre implémentation ou collez-y le code JS/HTML/CSS.</li>
+      <li>Assurez-vous d'utiliser des noms de fichiers uniques (préfixez par <code>rube_</code> si besoin).</li>
+      <li>Quand la machine affiche le mot de passe, envoyez-le au chatbot pour démarrer le Snake caché.</li>
+    </ol>
+  </div>
+
+  <script src="rube_launcher.js"></script>
+</body>
+</html>

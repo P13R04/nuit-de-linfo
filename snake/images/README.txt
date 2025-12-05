@@ -1,0 +1,1 @@
+Images used by Snake (copy originals from the development folder if needed).

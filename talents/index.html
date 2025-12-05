@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Carte des talents — Graveur de pierre</title>
+  <link rel="stylesheet" href="talents.css">
+</head>
+<body class="talents-page">
+  <header class="small-header">
+    <a href="/api/village.html">← Retour au village</a>
+    <h1>La Carte des Talents — Graveur de pierre</h1>
+  </header>
+
+  <main class="talents-main">
+    <section class="form-side">
+      <form id="talentForm">
+        <label>Nom
+          <input id="name" placeholder="Ton nom, brave Gaulois" required>
+        </label>
+
+        <label>Compétences (séparées par des virgules)
+          <input id="skills" placeholder="ex: Programmation, Dessin, Cuisine">
+        </label>
+
+        <label>Langues
+          <input id="languages" placeholder="ex: Français, Anglais">
+        </label>
+
+        <label>Projets / Réalisations
+          <textarea id="projects" rows="4" placeholder="Ce que tu as accompli..."></textarea>
+        </label>
+
+        <label>Style d'écriture
+          <select id="tone">
+            <option value="gaulois">Gaulois enjoué</option>
+            <option value="epic">Gravure épique</option>
+            <option value="plain">Sobre</option>
+          </select>
+        </label>
+
+        <div class="actions">
+          <button id="generate" type="submit" class="btn">Générer la carte</button>
+          <button id="download" type="button" class="btn ghost" style="display:none">Télécharger PNG</button>
+          <button id="edit" type="button" class="btn ghost" style="display:none">Modifier</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="preview-side">
+      <div class="card-wrap">
+        <canvas id="cardCanvas" width="900" height="600"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script src="talents.js"></script>
+</body>
+</html>

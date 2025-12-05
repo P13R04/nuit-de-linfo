@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Forêt mystérieuse — La Rube Goldberg</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="small-header">
+    <a href="/api/village.html">← Retour au village</a>
+    <h1>La Forêt mystérieuse</h1>
+  </header>
+
+  <main class="content">
+    <section>
+      <h2>Machine Rube Goldberg</h2>
+      <p>La machine Rube Goldberg a été déplacée dans sa propre page. Lancez-la depuis ici :</p>
+      <p><a href="/rube-goldberg/">Ouvrir la machine Rube Goldberg</a></p>
+      <p>Quand la machine révèle le mot de passe, utilisez-le avec le Romain pour démarrer le jeu secret de Snake.</p>
+    </section>
+
+    <section>
+      <h3>Mode d'emploi</h3>
+      <ol>
+        <li>Cliquez sur « Ouvrir la machine Rube Goldberg ».</li>
+        <li>La machine affichera un mot de passe secret.</li>
+        <li>Donnez ce mot de passe au chatbot sur la page <a href="/roman/">Le Romain</a> pour activer le mini-jeu Snake caché.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>Page temporaire — contenu à intégrer selon le code fourni.</p>
+  </footer>
+
+  <script>
+    // Redirige automatiquement vers la machine Rube Goldberg pour lancer la séquence
+    (function(){
+      try{
+        // courte temporisation pour laisser le rendu initial
+        setTimeout(function(){
+          window.location.replace('/rube-goldberg/');
+        }, 120);
+      }catch(e){
+        console.error('Redirection automatique vers la machine interrompue', e);
+      }
+    })();
+  </script>
+
+</body>
+</html>

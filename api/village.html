@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>API — Village</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <script>
+    // redirect back to the home page for a smoother flow
+    // small delay so users briefly see the API page if they land here directly
+    setTimeout(()=>{ try{ location.replace('/'); }catch(e){ location.href = '/'; } }, 500);
+  </script>
+  <main style="max-width:720px;margin:40px auto;padding:18px;background:#fff;border-radius:8px">
+    <h1>Point d'accès du village (API)</h1>
+    <p>Cette page remplace le lien « Retour au village » pour les sous-pages. Elle sert d'interface de retour et peut afficher des liens utiles.</p>
+    <ul>
+      <li><a href="/">Accueil principal</a></li>
+      <li><a href="/talents/">Graveur — Talents</a></li>
+      <li><a href="/rube-goldberg/">Forêt — Rube Goldberg</a></li>
+      <li><a href="/snake/">Snake caché</a></li>
+      <li><a href="/roman/">Le Romain</a></li>
+    </ul>
+  </main>
+</body>
+</html>

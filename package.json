@@ -1,0 +1,21 @@
+{
+  "name": "nuit-de-linfo-v2",
+  "version": "0.1.0",
+  "description": "Site village open-source - page principale",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "node-fetch": "^3.3.1",
+    "helmet": "^6.0.1",
+    "cors": "^2.8.5",
+    "node-cache": "^5.1.2",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

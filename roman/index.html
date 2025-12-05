@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>administratus le fan de licences payantes</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="roman-page">
+  <header class="small-header">
+    <a href="/api/village.html">← Retour au village</a>
+    <h1>administratus le fan de licences payantes</h1>
+  </header>
+
+  <main class="roman-main">
+    <div class="avatar-wrap">
+      <div id="admin-avatar" class="admin-avatar" aria-hidden="false">
+          <img src="/assets/administratus.png" alt="Administratus avatar" onerror="this.onerror=null;this.src='/assets/administratus.svg'">
+        </div>
+    </div>
+
+    <div class="chat" id="chat">
+      <div class="msg from-roman">« Moi, un Romain, confesse... je mangeais du fromage hier. »</div>
+    </div>
+    <form id="roman-form" class="roman-form" action="#">
+      <input id="roman-input" placeholder="Parle au Romain (simulation)" autocomplete="off">
+      <button>Envoyer</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('roman-form').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const input = document.getElementById('roman-input');
+      const chat = document.getElementById('chat');
+      if(!input.value.trim()) return;
+      const userText = input.value.trim();
+      const el = document.createElement('div');
+      el.className = 'msg from-user';
+      el.textContent = userText;
+      chat.appendChild(el);
+      input.value = '';
+      const loader = document.createElement('div');
+      loader.className = 'msg from-roman';
+      loader.textContent = 'Le Romain pense...';
+      chat.appendChild(loader);
+      chat.scrollTop = chat.scrollHeight;
+
+      if(userText === 'snake'){
+        let passed = false;
+        try{ passed = localStorage.getItem('nuit_passed') === '1' || localStorage.getItem('nuit_secret') === 'snake'; }catch(e){}
+        if(passed){
+          loader.textContent = 'Le Romain sourit... Il déverrouille le jeu.';
+          setTimeout(()=>{
+            window.location.href = '/snake/hidden.html';
+          },500);
+          return;
+        } else {
+          loader.textContent = "Le Romain dit : tu dois d'abord traverser la Forêt mystérieuse.";
+          return;
+        }
+      }
+
+      // canned humorous fallback replies (for quick local demo when API is unavailable)
+      const FALLBACK_REPLIES = [
+        "Chez les pros licences-payantes™, on facture l'air que tu respires en DLC.",
+        "Mise à jour forcée ? Ah oui : version 12.4.7b.3 — contient 3 nouvelles fenêtres modales.",
+        "Notre politique : payer d'abord, poser des questions ensuite — c'est plus simple pour la compta romaine.",
+        "Attention : acceptez le contrat de 27 pages ou retournez gratter des menhirs.",
+        "Pour activer le patch, insérez une pièce de monnaie... ou appelez le support (téléchargement facturé).",
+        "Nos jupes d'empereur intègrent un tracker subliminal pour te recommander des recettes de sanglier.",
+        "Le service pro inclut une hotline. Tarif spécial pour les gaulois qui hurlent au milieu de la nuit.",
+        "Si la potion ne marche pas, retournez chez Cétautomatix pour une mise à jour payante.",
+        "Ici, on vend des licences 'éternelles' — valable jusqu'à la prochaine lune (sous-entendu : payante).",
+        "Message du jour : sauvegarde avant la mise à jour, et priez pour que le parchemin ne soit pas chiffré.",
+        "Option Pro : un parchemin scellé avec 42 clauses — ouverture 19,99€.",
+        "Promo temporaire : achetez deux licences, le troisième bug est offert.",
+        "Notre patch 'compatibilité' ajoute une fenêtre de 7 Go qui s'ouvre à l'installation.",
+        "Abonnement 'Imperial+': mises à jour surprises, collection de pop-ups exclusifs.",
+        "Conseil gratuit : un bon menhir, c'est un menhir qui vient avec une licence payante.",
+        "Si quelque chose se casse, nous avons une équipe dédiée qui documente comment facturer la réparation."
+      ];
+
+      try {
+        const API_BASE = (location.hostname === '127.0.0.1' || location.hostname === 'localhost') && location.port !== '3000' ? 'http://localhost:3000' : '';
+        const r = await fetch(API_BASE + '/api/roman', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ message: userText })
+        });
+        console.log('[roman] fetch status', r.status, r.statusText);
+        let data;
+        try { data = await r.json(); } catch(e) { data = null; }
+        console.log('[roman] response data', data);
+        const avatarEl = document.getElementById('admin-avatar');
+        if (avatarEl) avatarEl.classList.add('speaking');
+        if (!r.ok) {
+          // fallback to canned replies when API returns error
+          const reply = FALLBACK_REPLIES[Math.floor(Math.random()*FALLBACK_REPLIES.length)];
+          loader.textContent = reply;
+          console.warn('[roman] API error', r.status, data, '— using fallback reply');
+        } else {
+          // prefer API reply when available, otherwise fallback
+          if (data && data.reply) {
+            loader.textContent = data.reply;
+          } else {
+            const reply = FALLBACK_REPLIES[Math.floor(Math.random()*FALLBACK_REPLIES.length)];
+            loader.textContent = reply;
+            console.warn('[roman] API returned no reply — using fallback');
+          }
+        }
+        if (avatarEl) setTimeout(()=> avatarEl.classList.remove('speaking'), 700);
+      } catch(err){
+        console.error('[roman] connection error', err);
+        // network error: use canned reply
+        const reply = FALLBACK_REPLIES[Math.floor(Math.random()*FALLBACK_REPLIES.length)];
+        loader.textContent = reply;
+        console.warn('[roman] connection error — using fallback reply', err);
+      }
+      chat.scrollTop = chat.scrollHeight;
+    });
+  </script>
+</body>
+</html>

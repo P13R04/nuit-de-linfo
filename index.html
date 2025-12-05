@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Le dernier rempart — Village Open</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-banner" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <h1>Le dernier rempart contre GAFAMUS</h1>
+      <p class="tagline">Petit village, grand cœur — temple ouvert du logiciel libre</p>
+      <p class="hero-desc">Explore le village : chaque lieu raconte une partie de notre résistance au numérique propriétaire. Clique sur une zone pour en savoir plus.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="village" class="village">
+      <h2>Le Village</h2>
+      <p>Clique sur les zones pour rencontrer les personnages et découvrir les parties du site.</p>
+
+      <div class="map" aria-hidden="false">
+        <!-- Fond: /assets/main_village.png -->
+        <button class="zone" data-target="administratus" data-page="/roman/" style="--x:12%;--y:86%">Administratus le Romain</button>
+        <button class="zone" data-target="arbre" data-page="/grand-arbre/" style="--x:50%;--y:43%">L'Arbre des Connaissances Libres</button>
+        <button class="zone" data-target="vlcix" data-page="/visualizer/" style="--x:50%;--y:62%">VLCIX, le barde de l'Open Source</button>
+        <button class="zone" data-target="forge" data-page="/talents/" style="--x:84%;--y:52%">La Forge des Talents</button>
+        <button class="zone" data-target="foret" data-page="/rube-goldberg/" style="--x:22%;--y:12%">La Forêt trop complexe</button>
+      </div>
+
+      <div id="panel" class="panel" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projet open-source — <a href="#">Repo</a> — Licence ouverte</p>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

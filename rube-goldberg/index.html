@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rube Goldberg — Nuit de l'Info</title>
+  <style>
+    body{font-family:system-ui,Arial;margin:20px;background:#faf7f3;color:#222}
+    .card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    button{padding:8px 12px;border-radius:6px;border:0;background:#6b4a2b;color:#fff;cursor:pointer}
+    pre{background:#f2f2f2;padding:10px;border-radius:6px;overflow:auto}
+  </style>
+</head>
+<body>
+  <a href="/">← Retour au village</a>
+  <h1 class="title">Machine Rube Goldberg</h1>
+  <div class="stage">
+    <div id="loaderScreen" class="loader">
+      <div style="display:flex;align-items:center;gap:18px">
+        <div class="fake-mech">
+          <img class="mech-img" src="images/asterix.png" alt="asterix" onerror="this.style.display='none'">
+        </div>
+        <div style="flex:1">
+          <div class="progressWrap">
+            <div class="progressBar"><div id="progress" class="progress"></div></div>
+            <div id="meta" class="meta">0%</div>
+          </div>
+          <div id="progressMsg" class="progressMsg"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameScreen" class="game" style="display:none;">
+      <div class="counter" id="counter">0 / 100</div>
+      <button id="clickBtn" class="clickBtn" aria-label="Cliquez"> <img class="btn-img" src="images/menhir.png" alt="menhir" onerror="this.style.display='none'"> </button>
+      <div class="obelix"><img src="images/Obelix.png" alt="Obelix"></div>
+    </div>
+
+    <div id="finalScreen" class="final" style="display:none;">
+      <div class="placeholder">Le secret est révélé</div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="rube-golberg.css">
+  <script src="rube_full.js"></script>
+</body>
+</html>

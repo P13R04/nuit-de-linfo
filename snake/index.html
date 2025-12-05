@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Snake </title>
+  <link rel="stylesheet" href="/rube-goldberg/rube-golberg.css">
+  <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+  <div class="stage">
+    <main class="snake-panel" role="application" aria-label="Jeu Snake">
+      <h2 class="title">"Mais les gaulois n'en avaient rien à faire"</h2>
+      <div class="infoRow">
+        <div class="score">Gaulois :<span id="score">0</span></div>
+      </div>
+
+      <div id="board" class="board" aria-hidden="false"></div>
+
+      <div id="startScreen" class="overlay" aria-hidden="false">
+        <div class="overlayCard">
+          <div class="placeholder">Snake</div>
+          <button id="startBtn" class="clickBtn">Démarrer</button>
+        </div>
+      </div>
+
+      <div class="hud">
+        <div id="status" class="hint">Appuyez sur une flèche pour démarrer.</div>
+      </div>
+
+      <div id="overlay" class="overlay" hidden>
+        <div class="overlayCard">
+          <div id="overlayMsg" class="placeholder">Game Over</div>
+          <button id="overlayRestart" class="clickBtn">Rejouer</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="snake.js" defer></script>
+</body>
+</html>

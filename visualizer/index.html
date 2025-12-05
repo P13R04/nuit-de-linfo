@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Visualisateur audio — Nuit de l'info</title>
+  <link rel="stylesheet" href="visualizer.css">
+</head>
+<body class="visualizer-page">
+  <a class="back" href="/api/village.html">← Retour au village</a>
+  <main class="viz-main">
+    <div class="viz-stage">
+      <canvas id="visCanvas"></canvas>
+
+      <div class="character" aria-hidden="true">
+        <img src="/assets/character.png" alt="" onerror="this.onerror=null;this.src='/assets/character.svg'">
+      </div>
+
+      <div id="vlcix" class="vlcix" aria-hidden="true">
+        <img src="/assets/vlcix.png" alt="vlcix" onerror="this.onerror=null;this.src='/assets/vlcix.svg'">
+      </div>
+
+    </div>
+
+    <div class="controls">
+      <label class="btn">Choisir un fichier audio
+        <input id="fileInput" type="file" accept="audio/*">
+      </label>
+      <button id="micBtn" class="btn">Utiliser le micro</button>
+      <button id="stopBtn" class="btn ghost">Stop</button>
+      <button id="sample1" class="btn">Play ambient1</button>
+      <button id="sample2" class="btn">Play ambient2</button>
+      <div class="note">Astuce : utilisez un fichier MP3/OGG, activez le micro, ou lancez les ambiances incluses.</div>
+    </div>
+  </main>
+
+  <script src="visualizer.js"></script>
+</body>
+</html>

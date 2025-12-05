@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Snake caché — Nuit de l'Info</title>
+  <style>
+    body{font-family:system-ui,Arial;margin:20px;background:#fff;color:#222}
+    .notice{background:#f7f7f7;padding:12px;border-radius:8px}
+    #game-root{margin-top:12px}
+    button{padding:8px 12px;border-radius:6px;border:0;background:#6b4a2b;color:#fff;cursor:pointer}
+  </style>
+</head>
+<body>
+  <a href="../public/foret.html">← Retour à la Forêt</a>
+  <h1>Snake caché</h1>
+  <div class="notice">
+    <p>Le jeu Snake est secret et nécessite un mot de passe révélé par la machine Rube Goldberg.</p>
+    <p>Entrez le mot de passe ci-dessous pour déverrouiller le jeu.</p>
+    <input id="pwd" placeholder="Entrez le mot de passe" style="padding:8px;margin-right:8px;border-radius:6px;border:1px solid #ddd">
+    <button id="unlock">Déverrouiller</button>
+    <div id="status" style="margin-top:12px;color:#b22222;font-family:monospace">(non déverrouillé)</div>
+  </div>
+  <div id="game-root"></div>
+
+  <script src="snake_launcher.js"></script>
+</body>
+</html>

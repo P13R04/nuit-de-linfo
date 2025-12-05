@@ -1,0 +1,99 @@
+/* Styles pour la page "Le Chêne Sacré" */
+:root{
+  --card-width: 1000px;
+  --accent: #165a2b;
+  --muted: #486a57;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color:#0b2a14;
+  background: url('/assets/grand_arbre.png') center/cover no-repeat fixed;
+  background-color:#082116;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Darken background for readability */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  /* Alléger le filtre sombre pour mieux voir l'image de fond */
+  background: linear-gradient(rgba(6,10,8,0.28), rgba(10,16,12,0.14));
+  z-index:0;
+}
+
+.skip-link{
+  position:absolute;
+  left:1rem;
+  top:0.5rem;
+  background:#fff;
+  color:#064225;
+  padding:0.35rem 0.5rem;
+  border-radius:4px;
+  text-decoration:none;
+  transform:translateY(-120%);
+  transition:transform .18s ease;
+  z-index:5;
+}
+.skip-link:focus{transform:none}
+
+.site-header{
+  position:relative;
+  z-index:2;
+  padding:1rem;
+  color:#fff;
+  text-shadow:0 1px 2px rgba(0,0,0,0.6);
+}
+.header-inner{max-width:var(--card-width);margin:0 auto;display:flex;align-items:center;gap:1rem}
+.back{color:#e6f8ef;text-decoration:none;font-weight:600}
+.site-title{margin:0;font-size:1.25rem}
+
+.main{display:flex;align-items:flex-start;justify-content:center;padding:2.5rem 1rem;min-height:calc(100vh - 6rem);z-index:2}
+
+.card{
+  width:100%;max-width:var(--card-width);
+  /* Rendre la carte un peu plus transparente pour laisser transparaître l'arrière-plan */
+  background:rgba(255,255,255,0.82);
+  color:#052017;
+  padding:2rem 2.25rem;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(3,9,6,0.25);
+  line-height:1.6;
+}
+.card h2{margin-top:0;font-size:1.6rem;color:var(--accent)}
+.card .lead{font-size:1.05rem;margin-bottom:0.9rem;color:var(--muted)}
+.card h3{margin-top:1.25rem;color:#0b5b2e}
+.card ul{margin:0.4rem 0 1rem 1.25rem}
+.card li{margin:0.5rem 0}
+.card p{margin:0.6rem 0}
+.card-footer{margin-top:1.25rem;padding-top:0.75rem;border-top:1px solid rgba(6,18,12,0.06);font-size:0.9rem;color:#536a5f}
+
+/* Responsive */
+@media (max-width:800px){
+  .card{padding:1.25rem;border-radius:10px}
+  .site-title{font-size:1rem}
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
+
+/* High contrast for readability if needed */
+@media (prefers-contrast: more){
+  .card{background:#fff;color:#001510}
+}
+
+/* Small tweaks for printing */
+@media print{
+  body::before, .site-header, .skip-link{display:none}
+  .card{box-shadow:none;border-radius:0}
+}
+
+/* Make links clear */
+.card a{color:var(--accent);text-decoration:underline}
